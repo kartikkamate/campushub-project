@@ -21,7 +21,7 @@ const Items = () => {
   }, []);
 
   const fetchItems = async () => {
-    const response = await axios.get("http://localhost:8000/item");
+    const response = await axios.get("https://kartik-7p4a.onrender.com/item");
     setItems(response.data.items);
     console.log(response.data);
   };
@@ -46,12 +46,12 @@ const Items = () => {
       let response;
       if (isEditMode) {
         response = await axios.put(
-          `http://localhost:8000/item/${itemId}`,
+          `https://kartik-7p4a.onrender.com/item/${itemId}`,
           formData,
           { headers: { "Content-Type": "multipart/form-data" } }
         );
       } else {
-        response = await axios.post("http://localhost:8000/item", formData, {
+        response = await axios.post("https://kartik-7p4a.onrender.com/item", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
       }
@@ -91,7 +91,7 @@ const Items = () => {
     if (!confirmDelete) return;
 
     try {
-      const res = await axios.delete(`http://localhost:8000/item/${id}`);
+      const res = await axios.delete(`https://kartik-7p4a.onrender.com/item/${id}`);
       setItems(items.filter((item) => item._id !== id));
       alert(res.data.message);
     } catch (error) {
@@ -195,7 +195,7 @@ const Items = () => {
 
               <td>
                 <img
-                  src={`http://localhost:8000/uploads/${item.itemImage}`}
+                  src={`https://kartik-7p4a.onrender.com/uploads/${item.itemImage}`}
                   alt={item.itemName}
                   width="50"
                 />
