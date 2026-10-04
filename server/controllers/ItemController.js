@@ -4,7 +4,7 @@ import { Item } from "../models/Item.js";
 export const createItem = async (req, res) => {
   try {
     const { itemName, quantity, description, category } = req.body;
-    const itemImage = req.file ? req.file.filename : null;
+    const itemImage = req.file ? req.file.path : null;
 
 
     const newItem = new Item({
@@ -53,9 +53,9 @@ export const updateItem = async (req, res) => {
 
     let updateData = { itemName, quantity, description, category };
 
-    if (req.file) {
-      updateData.itemImage = req.file.filename;
-    }
+     if (req.file) {
+  updateData.itemImage = req.file.path;
+}
 
     const item = await Item.findByIdAndUpdate(
       req.params.id,

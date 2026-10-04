@@ -73,16 +73,17 @@ const Items = () => {
   };
 
   const handleEdit = (item) => {
-    setItemData({
-      itemName: item.itemName,
-      quantity: item.quantity,
-      description: item.description,
-      category: item.category._id,
-      itemImage: null,
-    });
-    setItemId(item._id);
-    setIsEditMode(true);
-  };
+  setItemData({
+    itemName: item.itemName,
+    quantity: item.quantity,
+    description: item.description,
+    category: item.category,
+    itemImage: null,
+  });
+
+  setItemId(item._id);
+  setIsEditMode(true);
+};
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
@@ -195,10 +196,10 @@ const Items = () => {
 
               <td>
                 <img
-                  src={`https://kartik-7p4a.onrender.com/uploads/${item.itemImage}`}
-                  alt={item.itemName}
-                  width="50"
-                />
+               src={item.itemImage}
+               alt={item.itemName}
+               width="50"
+               />
               </td>
               <td>
                 <Button variant="warning" onClick={() => handleEdit(item)}>
