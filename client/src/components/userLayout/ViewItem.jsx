@@ -65,13 +65,10 @@ const ViewItem = () => {
               <div
                 className="item-image-container"
                 onClick={() =>
-                  handleImageClick(
-                    `https://kartik-7p4a.onrender.com/uploads/${item.itemImage}`
-                  )
-                }
+                  handleImageClick(item.itemImage)}
               >
                 <img
-                  src={`https://kartik-7p4a.onrender.com/uploads/${item.itemImage}`}
+                  src={item.itemImage}
                   alt={item.itemName}
                   className="item-image"
                 />
