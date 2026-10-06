@@ -33,7 +33,7 @@ const Login = () => {
       setMessage({ text: res.data.message, type: "success" });
       // Save user details in localStorage (optional)
       localStorage.setItem("user", JSON.stringify(res.data.user));
-      localStorage.setItem("token", JSON.stringify(res.data.token));
+      localStorage.setItem("token", res.data.token);
       // Navigate to /user after success
       if(res.data.user.role==="admin"){
         navigate("/admin")
