@@ -48,12 +48,24 @@ const Items = () => {
         response = await axios.put(
           `https://kartik-7p4a.onrender.com/item/${itemId}`,
           formData,
-          { headers: { "Content-Type": "multipart/form-data" } }
+          {
+             headers: { 
+              "Content-Type": "multipart/form-data",
+            Authorization: `Bearer $
+            {localStorage.getItem("token")}`
+          }
+        } 
         );
       } else {
-        response = await axios.post("https://kartik-7p4a.onrender.com/item", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
+        response = await axios.post("https://kartik-7p4a.onrender.com/item", 
+          formData, 
+          {
+          headers: {
+             "Content-Type": "multipart/form-data" 
+             Authorization: `Bearer $
+      {localStorage.getItem("token")}`
+          }
+      });
       }
 
       if (response.status === 200 || response.status === 201) {
@@ -92,7 +104,14 @@ const Items = () => {
     if (!confirmDelete) return;
 
     try {
-      const res = await axios.delete(`https://kartik-7p4a.onrender.com/item/${id}`);
+      const res = await axios.delete(`https://kartik-7p4a.onrender.com/item/${id}`,
+        {
+        headers: {
+        Authorization: `Bearer $
+        {localStorage.getItem("token")}`
+        }
+      }
+    );
       setItems(items.filter((item) => item._id !== id));
       alert(res.data.message);
     } catch (error) {
