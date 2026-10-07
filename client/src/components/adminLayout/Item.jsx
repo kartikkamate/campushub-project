@@ -51,12 +51,11 @@ const Items = () => {
           {
              headers: { 
               "Content-Type": "multipart/form-data",
-            Authorization: `Bearer $
-            {localStorage.getItem("token")}`
-          }
-        } 
-        );
-      } else {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          },
+        } );
+      }
+       else {
         response = await axios.post("https://kartik-7p4a.onrender.com/item", 
           formData, 
           {
@@ -106,11 +105,9 @@ const Items = () => {
       const res = await axios.delete(`https://kartik-7p4a.onrender.com/item/${id}`,
         {
         headers: {
-        Authorization: `Bearer $
-        {localStorage.getItem("token")}`
-        }
-      }
-    );
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+        },
+      });
       setItems(items.filter((item) => item._id !== id));
       alert(res.data.message);
     } catch (error) {
