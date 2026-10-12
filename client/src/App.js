@@ -20,6 +20,7 @@ import ViewItem from "./components/userLayout/ViewItem";
 
 // Admin Layout
 import AdminLayout from "./components/adminLayout/AdminLayout";
+import AdminProfile from "./components/adminLayout/Profile";
 import Logout from "./components/adminLayout/Logout";
 import Students from "./components/adminLayout/Students";
 import AddCourses from "./components/adminLayout/AddCourses";
@@ -58,7 +59,7 @@ function App() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="home" element={<Home />} />
           <Route path="logout" element={<Logout />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="profile" element={<AdminProfile />} />
           <Route path="students" element={<Students />} />
           <Route path="addcourses" element={<AddCourses />} />
           <Route path="addnotes" element={<AddNotes />} />
