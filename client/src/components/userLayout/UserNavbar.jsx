@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  Container,
-  Nav,
-  Navbar,
-  Dropdown,
-  Badge,
-} from "react-bootstrap";
+import { Container, Nav, Navbar, Dropdown } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
   HouseFill,
